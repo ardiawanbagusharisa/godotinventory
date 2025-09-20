@@ -6,6 +6,7 @@ class_name WorldItem
 
 var _dragging := false
 var _inv_panel: Control
+var _hover_state := false
 
 func _ready() -> void:
 	input_pickable = true
@@ -21,19 +22,40 @@ func _input_event(_vp: Viewport, event: InputEvent, _shape_idx: int) -> void:
 		_dragging = true
 		set_deferred("freeze_mode", RigidBody2D.FREEZE_MODE_KINEMATIC)
 		set_deferred("freeze", true)
+		
+		#if _over_inventory_panel(): 
+			#_inv_panel.call_deferred("set_hover", true) 
+			#print("Set hover true")
+		#else: 
+			#_inv_panel.call_deferred("set_hover", false)
 
 func _input(event: InputEvent) -> void:
 	if not _dragging: return
+	
 	if event is InputEventMouseMotion and follow_while_dragging:
 		global_position = get_global_mouse_position()
+		var over := _over_inventory_panel()
+		if over != _hover_state:
+			_hover_state = over
+			if _inv_panel and _inv_panel.has_method("set_hover"):
+				_inv_panel.set_hover(_hover_state)
+				
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		_dragging = false
+		if _inv_panel and _inv_panel.has_method("set_hover"):
+			_inv_panel.set_hover(false)
 		if _over_inventory_panel():
 			if item_id != &"": Inventory.add_item(item_id, 1)
 			else: push_warning("WorldItem has empty item_id; set it in the Inspector")
 			queue_free()
 		else:
 			set_deferred("freeze", false)
+		
+		#if _over_inventory_panel(): 
+			#_inv_panel.call_deferred("set_hover", true) 
+			#print("Set hover true")
+		#else: 
+			#_inv_panel.call_deferred("set_hover", false)
 
 func _over_inventory_panel() -> bool:
 	if _inv_panel == null or not _inv_panel.visible: return false

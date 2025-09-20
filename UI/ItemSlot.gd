@@ -13,6 +13,7 @@ var count_label: Label
 var _press_local_pos := Vector2.ZERO
 var _drag_started := false
 const DRAG_PIX := 8.0
+var _pressed := false
 
 func _build_ui() -> void:
 	if icon_holder: return  
@@ -35,6 +36,8 @@ func _build_ui() -> void:
 	#icon_rect.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	#icon_rect.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	icon_rect.size
+	icon_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE # Optional
+
 	icon_holder.add_child(icon_rect)
 
 	# Count label (bottom-right)
@@ -64,16 +67,18 @@ func set_item(data: ItemData, count: int) -> void:
 	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
 		#right_click.emit(item_id)
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		right_click.emit(item_id)
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			_pressed = true
 			_press_local_pos = get_local_mouse_position()
 			_drag_started = false
 		else:
+			_pressed = false
 			_drag_started = false
 	elif event is InputEventMouseMotion:
-		if item_id != &"" and not _drag_started:
+		if _pressed and item_id != &"" and not _drag_started:
 			var d := (get_local_mouse_position() - _press_local_pos).length()
 			if d >= DRAG_PIX:
 				_drag_started = true

@@ -41,3 +41,6 @@ func _rebuild() -> void:
 
 func _on_slot_right_click(item_id: StringName) -> void:
 	throw_requested.emit(item_id)
+
+func set_hover(on: bool) -> void:
+	modulate = Color(0.7, 1.0, 0.7, 1.0) if on else Color(1, 1, 1, 1)
