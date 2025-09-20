@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxvq0lpu7raor"]
+
+[ext_resource type="Texture2D" uid="uid://60ytd8w7tuhg" path="res://icons/apple.png" id="1_hm7d7"]
+[ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_huofl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huofl"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_huofl")
+item_id = &"apple"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_huofl")
+
+[node name="Apple" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Apple"]
+texture = ExtResource("1_hm7d7")
