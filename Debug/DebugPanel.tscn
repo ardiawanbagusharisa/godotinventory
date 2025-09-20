@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://28h1wfji5ibe"]
+
+[ext_resource type="Script" uid="uid://b3vw4ujh1akt0" path="res://Debug/DebugPanel.gd" id="1_d7bx1"]
+
+[node name="Panel" type="Panel"]
+offset_right = 300.0
+offset_bottom = 100.0
+script = ExtResource("1_d7bx1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Grid" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8

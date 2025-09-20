@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bygn6pnree5f6"]
 
-[ext_resource type="Texture2D" uid="uid://pia8a0is7aip" path="res://icons/stone.png" id="1_i7v68"]
 [ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_jwa2j"]
+[ext_resource type="Texture2D" uid="uid://c6rw8wtafgs8b" path="res://icons/stone64.png" id="2_jwa2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwa2j"]
 
@@ -15,4 +15,4 @@ shape = SubResource("RectangleShape2D_jwa2j")
 [node name="Stone" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Stone"]
-texture = ExtResource("1_i7v68")
+texture = ExtResource("2_jwa2j")

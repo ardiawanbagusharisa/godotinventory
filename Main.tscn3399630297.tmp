@@ -53,6 +53,9 @@ offset_right = 1152.0
 
 [node name="DebugPanel" parent="CanvasLayer/UI" instance=ExtResource("5_3dxm6")]
 layout_mode = 0
+base_add = null
+shift_add = null
+ctrl_add = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(575, 603)

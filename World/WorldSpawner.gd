@@ -1,7 +1,7 @@
 extends Node2D
 class_name WorldSpawner
 
-@export var player: Node2D
+@export var target: Node2D
 @export var throw_spin: float = 6.0 
 
 func spawn_physics_item_by_id(item_id: StringName, at_world: Vector2) -> RigidBody2D:
@@ -29,10 +29,10 @@ func throw_from_mouse_to_player(item_id: StringName, arc_height: float = 96.0) -
 	if item_id == &"": return false
 
 	var start: Vector2 = get_global_mouse_position()
-	var target: Vector2 = player.global_position if is_instance_valid(player) else start + Vector2(200, 0)
+	var targetpos: Vector2 = target.global_position if is_instance_valid(target) else start + Vector2(200, 0)
 
 	var g: float = _get_gravity_magnitude()         # px/s^2
-	var v0: Vector2 = _solve_ballistic_arc(start, target, arc_height, g)
+	var v0: Vector2 = _solve_ballistic_arc(start, targetpos, arc_height, g)
 
 	var rb := spawn_physics_item_by_id(item_id, start)
 	if rb == null: return false

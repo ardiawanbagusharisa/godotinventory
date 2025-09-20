@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b20sumym8pnrq"]
+[gd_scene load_steps=7 format=3 uid="uid://b20sumym8pnrq"]
 
 [ext_resource type="Script" uid="uid://cgwx0yh7uw8gm" path="res://Main.gd" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://dd6sir0xwei0i" path="res://World/World.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://cgspws7wc12x6" path="res://Inventory/InventoryPanel.tscn" id="2_r0du0"]
 [ext_resource type="Script" uid="uid://bnlwuv44pqg2l" path="res://World/WorldDropLayer.gd" id="4_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://28h1wfji5ibe" path="res://Debug/DebugPanel.tscn" id="5_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://mtd4mrspjhoe" path="res://icons/mariotile.png" id="5_fos0i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
@@ -14,9 +13,6 @@ size = Vector2(1149, 86)
 script = ExtResource("1_fos0i")
 
 [node name="World" parent="." instance=ExtResource("1_uu6xs")]
-
-[node name="WorldSpawner" parent="World" index="0" node_paths=PackedStringArray("target")]
-target = NodePath("../DummyTarget")
 
 [node name="DummyTarget" type="Node2D" parent="World"]
 position = Vector2(363, 423)
@@ -50,9 +46,6 @@ mouse_filter = 2
 layout_mode = 0
 offset_left = 752.0
 offset_right = 1152.0
-
-[node name="DebugPanel" parent="CanvasLayer/UI" instance=ExtResource("5_3dxm6")]
-layout_mode = 0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(575, 603)
