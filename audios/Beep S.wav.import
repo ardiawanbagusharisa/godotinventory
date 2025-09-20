@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbbl2tqhnlpc3"
+path="res://.godot/imported/Beep S.wav-316bd2a87a2fec549b10973f31154ddd.sample"
+
+[deps]
+
+source_file="res://audios/Beep S.wav"
+dest_files=["res://.godot/imported/Beep S.wav-316bd2a87a2fec549b10973f31154ddd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

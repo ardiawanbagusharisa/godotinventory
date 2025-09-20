@@ -46,6 +46,7 @@ func _ready() -> void:
 	# left-click only
 	pressed.connect(func():
 		if item_id != &"": clicked_item.emit(item_id)
+		SFXManager.play_ui(&"ui_click")
 	)
 
 #func set_count(n: int) -> void:

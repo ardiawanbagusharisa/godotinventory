@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pvn14gtsd248"
+path="res://.godot/imported/Hit XS.wav-170e9d05d382f2a2e4d5d7c745311c45.sample"
+
+[deps]
+
+source_file="res://audios/Hit XS.wav"
+dest_files=["res://.godot/imported/Hit XS.wav-170e9d05d382f2a2e4d5d7c745311c45.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
