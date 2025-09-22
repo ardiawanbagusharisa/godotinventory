@@ -20,7 +20,7 @@ func _ready() -> void:
 	custom_minimum_size = Vector2(SLOT_SIZE, SLOT_SIZE)
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
-	# icon
+	# Icon
 	_icon = TextureRect.new()
 	_icon.texture = icon_tex
 	_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -30,7 +30,7 @@ func _ready() -> void:
 	_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_icon)
 
-	# label
+	# Label
 	_count = Label.new()
 	_count.text = title
 	_count.add_theme_font_size_override("font_size", COUNT_FONT)
@@ -44,16 +44,13 @@ func _ready() -> void:
 
 	tooltip_text = "%s" % title + "\n+1: click, \n+10: shift+click, \n+100: ctrl+click."
 
-	# left-click only
+	# Left-click action only
 	pressed.connect(func():
 		if item_id != &"": clicked_item.emit(item_id)
 		SFXManager.play_ui(&"ui_click")
 	)
 
-#func set_count(n: int) -> void:
-	#_count.text = "999+" if (n > 999) else str(n)
-
 func _gui_input(event: InputEvent) -> void:
-	# ignore right-click and any drag intents (pure click-only tile)
+	# Ignore right-click and any drag intents.
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		accept_event()

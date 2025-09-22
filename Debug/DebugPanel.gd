@@ -13,7 +13,7 @@ const PADDING := 24
 var _buttons: Array[DebugItemButton] = []
 
 func _ready() -> void:
-	add_to_group("DebugItemsPanel") # optional
+	add_to_group("DebugItemsPanel") 
 	grid.add_theme_constant_override("h_separation", CELL_GAP)
 	grid.add_theme_constant_override("v_separation", CELL_GAP)
 	resized.connect(_on_panel_resized)
@@ -32,7 +32,7 @@ func _build_once() -> void:
 	_clear_grid()
 	_buttons.clear()
 
-	# Collect and sort ItemDB entries by display_name
+	# Collect and sort ItemDB by display name.
 	var entries: Array = []
 	for id in ItemDB.items.keys():
 		var data := ItemDB.get_item(id)
@@ -48,7 +48,7 @@ func _build_once() -> void:
 		grid.add_child(btn)
 		_buttons.append(btn)
 
-		# Click to add to inventory (no spawner involved)
+		# Left-click to add to inventory.
 		btn.clicked_item.connect(func(id: StringName):
 			var amt := _pick_amount()
 			Inventory.add_item(id, amt)
@@ -59,7 +59,6 @@ func _refresh_counts() -> void:
 		var n := 0
 		if Inventory.has_method("get_count"):
 			n = Inventory.get_count(btn.item_id)
-		#btn.set_count(n)
 
 func _clear_grid() -> void:
 	for c in grid.get_children():

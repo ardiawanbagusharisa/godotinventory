@@ -6,7 +6,7 @@ extends Node
 func _ready() -> void:
 	inv_panel.throw_requested.connect(_on_throw_requested)
 
-	# Demo inventory: populate here
+	# Demo inventory: populate here.
 	Inventory.add_item(&"apple", 5)
 	Inventory.add_item(&"stone", 998)
 	Inventory.add_item(&"wood", 37)

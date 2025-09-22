@@ -3,20 +3,25 @@ extends Node
 signal changed
 
 var _counts: Dictionary = {}  # id -> count
-
 enum SortMode { BY_NAME_ASC, BY_ID_ASC }
 var sort_mode: SortMode = SortMode.BY_NAME_ASC
 
+const MAXITEMS := 1100 
+
 func add_item(id: StringName, amount: int = 1) -> void:
-	if amount <= 0: return
+	if amount <= 0 or _counts.get(id, 0) >= MAXITEMS: 
+		push_warning("[Inventory.add_item] For debug purpose, item slot is full.") 
+		return
 	var before := int(_counts.get(id, 0))
 	_counts[id] = before + amount
-	#print("[Inventory.add_item] id=", id, " before=", before, " after=", _counts[id])
+	print("[Inventory.add_item] id=", id, " before=", before, " after=", _counts[id])
 	changed.emit()
 
 func remove_item(id: StringName, amount: int = 1) -> void:
 	if not _counts.has(id): return
+	var before := int(_counts.get(id, 0))
 	_counts[id] = max(0, int(_counts[id]) - amount)
+	print("[Inventory.remove_item] id=", id, " before=", before, " after=", _counts[id])
 	if _counts[id] == 0:
 		_counts.erase(id)
 	changed.emit()

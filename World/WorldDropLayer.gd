@@ -15,7 +15,7 @@ func _process(_dt: float) -> void:
 	if dragging != _is_dragging:
 		_is_dragging = dragging
 		mouse_filter = MOUSE_FILTER_STOP if dragging else MOUSE_FILTER_IGNORE
-		# faint tint while catching drops:
+		# Tint while catching drops:
 		modulate = Color(0.5, 1.0, 0.5, 0.2) if dragging else Color(1,1,1,0)
 
 func _can_drop_data(_pos: Vector2, data: Variant) -> bool:

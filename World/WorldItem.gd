@@ -88,7 +88,7 @@ func _update_inventory_slot_highlight() -> void:
 	else:
 		_clear_inventory_slot_highlight()
 
-func _clear_inventory_slot_highlight() -> void:    # NEW
+func _clear_inventory_slot_highlight() -> void:    
 	if _last_highlighted_slot:
 		_last_highlighted_slot.set_highlight(false)
 		_last_highlighted_slot = null

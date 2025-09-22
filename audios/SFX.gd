@@ -4,14 +4,12 @@ class_name SFX
 
 const BUS := "SFX"
 
-# Preload/alias your clips here
+# Preload clips
 var _streams: Dictionary = {
 	&"ui_click": preload("res://audios/Beep S.wav"),
 	&"ui_rightclick": preload("res://audios/Hit XS.wav"),
 	&"ui_drag": preload("res://audios/PowerUp M2.wav"),
 	&"ui_dragout": preload("res://audios/PowerUp M.wav"),
-	# add more as needed:
-	# &"ui_hover": preload("res://audio/ui/hover.ogg"),
 }
 
 func play_ui(id: StringName, volume_db: float = -6.0, pitch: float = 1.0) -> void:
@@ -25,10 +23,11 @@ func play_ui(id: StringName, volume_db: float = -6.0, pitch: float = 1.0) -> voi
 	p.volume_db = volume_db
 	p.pitch_scale = pitch
 	add_child(p)
-	p.finished.connect(p.queue_free)  # auto-clean
+	# auto-clean
+	p.finished.connect(p.queue_free)  
 	p.play()
 
-# World helper (for 2D positional sounds); not required for UI clicks:
+# World helper (for 2D positional sounds). Not required for UI clicks. 
 func play_2d(id: StringName, parent: Node, at_world: Vector2, volume_db: float = -6.0, pitch: float = 1.0) -> void:
 	var stream: AudioStream = _streams.get(id)
 	if stream == null:

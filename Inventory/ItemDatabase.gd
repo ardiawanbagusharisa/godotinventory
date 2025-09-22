@@ -3,6 +3,9 @@ extends Node
 var items: Dictionary = {}
 
 func _ready() -> void:
+	# Note: There are two alternatives to easily register and access an item: 
+	# 1) Use tres 
+	# 2) Make ItemDB global 
 	_register_item("apple", "Apple", "Replenish your energy (maybe).","res://icons/apple64.png", "res://World/Apple.tscn")
 	_register_item("wood", "Wood", "Build your dream AirBnb.","res://icons/wood64.png", "res://World/Wood.tscn")
 	_register_item("stone", "Stone", "Useful for a protest.","res://icons/stone64.png", "res://World/Stone.tscn")
