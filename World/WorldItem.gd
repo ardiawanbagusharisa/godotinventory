@@ -238,17 +238,19 @@ func _make_default_spark_2d() -> GPUParticles2D:
 
 	var mat := ParticleProcessMaterial.new()
 	# 2D fields (Vector2), keep it simple and compatible
-	mat.gravity = Vector3(0.0, 900.0, 0.0)
+	mat.gravity = Vector3(0.0, 500.0, 0.0)
 	mat.initial_velocity_min = 120.0
 	mat.initial_velocity_max = 240.0
-	mat.spread = 50.0
-	mat.scale_min = 0.6
-	mat.scale_max = 1.0
+	mat.angular_velocity_min = -12.0
+	mat.angular_velocity_max =  12.0
+	mat.spread = 180
+	mat.scale_min = 0.2
+	mat.scale_max = 1.5
 	p.process_material = mat
 
 	# Tiny texture dot so sparks are visible
 	var img := Image.create(4, 4, false, Image.FORMAT_RGBA8)
-	img.fill(Color(1, 0.85, 0.3, 1))
+	img.fill(Color(1, 0.85, 0.3, 0.75))
 	var tex := ImageTexture.create_from_image(img)
 	p.texture = tex
 
