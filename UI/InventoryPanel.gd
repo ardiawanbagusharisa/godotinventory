@@ -54,12 +54,25 @@ func _on_slot_right_click(item_id: StringName) -> void:
 func set_hover(on: bool) -> void:
 	modulate = Color(0.7, 1.0, 0.7, 1.0) if on else Color(1, 1, 1, 1)
 
-func _highlight_slot(id: StringName, on: bool) -> void:   
-	if _current_highlight_id != &"" and _current_highlight_id in _slots_by_id:
-		_slots_by_id[_current_highlight_id].set_highlight(false)
-	_current_highlight_id = id if on else &""
-	if on and id in _slots_by_id:
-		_slots_by_id[id].set_highlight(true)
+func _highlight_slot(id: StringName, on: bool) -> void:
+	# Turn off previous safely.
+	if _current_highlight_id != &"" and _slots_by_id.has(_current_highlight_id):
+		var prev = _slots_by_id[_current_highlight_id]
+		if prev != null and is_instance_valid(prev) and prev.is_inside_tree():
+			prev.set_highlight(false)
+		else:
+			_slots_by_id.erase(_current_highlight_id)
+	_current_highlight_id = &""
+
+	# Turn on only if the slot exists & is valid.
+	if on and _slots_by_id.has(id):
+		var s = _slots_by_id[id]
+		if s != null and is_instance_valid(s) and s.is_inside_tree():
+			s.set_highlight(true)
+			_current_highlight_id = id
+		else:
+			_slots_by_id.erase(id)
+
 
 func _clear_highlight() -> void:                           
 	_highlight_slot(_current_highlight_id, false)

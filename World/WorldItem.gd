@@ -21,21 +21,16 @@ func set_item_id(id: StringName) -> void:
 func _input_event(_vp: Viewport, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		_dragging = true
+		#_update_inventory_slot_highlight()
 		set_deferred("freeze_mode", RigidBody2D.FREEZE_MODE_KINEMATIC)
 		set_deferred("freeze", true)
-		
-		#if _over_inventory_panel(): 
-			#_inv_panel.call_deferred("set_hover", true) 
-			#print("Set hover true")
-		#else: 
-			#_inv_panel.call_deferred("set_hover", false)
 
 func _input(event: InputEvent) -> void:
 	if not _dragging: return
 	
 	if event is InputEventMouseMotion and follow_while_dragging:
 		global_position = get_global_mouse_position()
-		_update_inventory_slot_highlight() # [Bug]
+		_update_inventory_slot_highlight()
 		var over := _over_inventory_panel()
 		if over != _hover_state:
 			_hover_state = over
@@ -44,7 +39,8 @@ func _input(event: InputEvent) -> void:
 				
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		_dragging = false
-		_clear_inventory_slot_highlight() 
+		_clear_inventory_slot_highlight()
+		 
 		if _inv_panel and _inv_panel.has_method("set_hover"):
 			_inv_panel.set_hover(false)
 		if _over_inventory_panel():
@@ -54,12 +50,6 @@ func _input(event: InputEvent) -> void:
 			SFXManager.play_ui(&"ui_drag")
 		else:
 			set_deferred("freeze", false)
-		
-		#if _over_inventory_panel(): 
-			#_inv_panel.call_deferred("set_hover", true) 
-			#print("Set hover true")
-		#else: 
-			#_inv_panel.call_deferred("set_hover", false)
 
 func _over_inventory_panel() -> bool:
 	if _inv_panel == null or not _inv_panel.visible: return false
@@ -68,27 +58,48 @@ func _over_inventory_panel() -> bool:
 	return rect.has_point(mouse_screen)
 
 func _update_inventory_slot_highlight() -> void:
-	var hovered := get_viewport().gui_get_hovered_control()
-	var slot: ItemSlot = null
+	var target: ItemSlot = null
 
-	# climb up through parents until we hit the ItemSlot (or run out)
+	# Hovered matching slot UI.
+	var hovered := get_viewport().gui_get_hovered_control()
 	while hovered:
-		if hovered is ItemSlot:
-			slot = hovered
+		if hovered is ItemSlot and hovered.item_id == item_id:
+			target = hovered
 			break
 		hovered = hovered.get_parent() as Control
 
-	# now apply highlight if the IDs match; otherwise clear
-	if slot and slot.item_id == item_id:
-		print("hovered:", hovered, "  slot:", slot, "  id:", item_id)
-		if _last_highlighted_slot and _last_highlighted_slot != slot:
-			_last_highlighted_slot.set_highlight(false)
-		slot.set_highlight(true)
-		_last_highlighted_slot = slot
+	# Fallback: find a matching slot anywhere. 
+	if target == null:
+		target = _find_matching_inventory_slot(item_id)
+
+	# Clear previously different or invalid.
+	if _last_highlighted_slot != null:
+		if not is_instance_valid(_last_highlighted_slot) or _last_highlighted_slot != target:
+			if is_instance_valid(_last_highlighted_slot):
+				_last_highlighted_slot.set_highlight(false)
+			_last_highlighted_slot = null
+
+	# Apply highlight if valid only. 
+	if target != null and is_instance_valid(target):
+		target.set_highlight(true)
+		_last_highlighted_slot = target
 	else:
 		_clear_inventory_slot_highlight()
 
-func _clear_inventory_slot_highlight() -> void:    
-	if _last_highlighted_slot:
+func _clear_inventory_slot_highlight() -> void:
+	if _last_highlighted_slot != null and is_instance_valid(_last_highlighted_slot):
 		_last_highlighted_slot.set_highlight(false)
-		_last_highlighted_slot = null
+	_last_highlighted_slot = null
+
+func _find_matching_inventory_slot(id: StringName) -> ItemSlot:
+	if _inv_panel and _inv_panel.is_inside_tree():
+		if _inv_panel.has_method("get_slots"):
+			for s in _inv_panel.get_slots():
+				if s and s.is_visible_in_tree() and s.item_id == id:
+					return s
+
+	for n in get_tree().get_nodes_in_group("ItemSlot"):
+		if n is ItemSlot and n.is_visible_in_tree() and n.item_id == id:
+			return n
+
+	return null

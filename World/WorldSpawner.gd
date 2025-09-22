@@ -2,7 +2,7 @@ extends Node2D
 class_name WorldSpawner
 
 @export var target: Node2D
-@export var throw_spin: float = 6.0 
+@export var throw_spin: float = 5.0 
 
 func spawn_physics_item_by_id(item_id: StringName, at_world: Vector2) -> RigidBody2D:
 	var data := ItemDB.get_item(item_id)
@@ -17,10 +17,10 @@ func spawn_physics_item_by_id(item_id: StringName, at_world: Vector2) -> RigidBo
 	if inst is RigidBody2D:
 		var rb: RigidBody2D = inst
 		rb.global_position = at_world
-		rb.set_deferred("freeze", false)  # ensure active
+		# Ensure active
+		rb.set_deferred("freeze", false)  
 		return rb
 
-	# Fallback if someone left the scene as Node2D
 	if inst is Node2D:
 		(inst as Node2D).global_position = at_world
 	return null
@@ -31,7 +31,7 @@ func throw_from_mouse_to_player(item_id: StringName, arc_height: float = 96.0) -
 	var start: Vector2 = get_global_mouse_position()
 	var targetpos: Vector2 = target.global_position if is_instance_valid(target) else start + Vector2(200, 0)
 
-	var g: float = _get_gravity_magnitude()         # px/s^2
+	var g: float = _get_gravity_magnitude()
 	var v0: Vector2 = _solve_ballistic_arc(start, targetpos, arc_height, g)
 
 	var rb := spawn_physics_item_by_id(item_id, start)
@@ -67,19 +67,18 @@ func _get_gravity_magnitude() -> float:
 	return g
 
 func _apply_item_id_to_tree(node: Node, id: StringName) -> bool:
-	# Best: typed WorldItem
 	if node is WorldItem:
 		(node as WorldItem).item_id = id
 		return true
-	# Next: a setter the author provided
+
 	if node.has_method("set_item_id"):
 		node.call("set_item_id", id)
 		return true
-	# Fallback: a plain exported variable named item_id
+
 	if node.has_variable("item_id"):
 		node.set("item_id", id)
 		return true
-	# Recurse children (stop at first success)
+
 	for c in node.get_children():
 		if _apply_item_id_to_tree(c, id):
 			return true

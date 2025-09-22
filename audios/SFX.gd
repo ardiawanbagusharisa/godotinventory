@@ -1,4 +1,3 @@
-# res://audio/Sfx.gd
 extends Node
 class_name SFX
 
@@ -49,6 +48,7 @@ func play_ui_var(id: StringName, volume_db: float = -6.0, jitter: float = 0.05) 
 	play_ui(id, volume_db, pitch)
 
 func _bus_exists(name: String) -> bool:
+	
 	for i in AudioServer.bus_count:
 		if AudioServer.get_bus_name(i) == name:
 			return true

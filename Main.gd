@@ -20,8 +20,3 @@ func _on_throw_requested(item_id: StringName) -> void:
 	var ok = spawner.throw_from_mouse_to_player(item_id)
 	if ok:
 		Inventory.remove_item(item_id, 1)
-
-#func _on_spawn_requested(item_id: StringName) -> void:
-	#var inst := spawner.spawn_item_by_id(item_id)
-	#if inst:
-		#Inventory.remove_item(item_id, 1)
