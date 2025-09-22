@@ -49,7 +49,7 @@ mouse_filter = 2
 [node name="InventoryPanel" parent="CanvasLayer/UI" instance=ExtResource("2_r0du0")]
 layout_mode = 0
 offset_left = 752.0
-offset_right = 1152.0
+offset_right = 1151.0
 
 [node name="DebugPanel" parent="CanvasLayer/UI" instance=ExtResource("5_3dxm6")]
 layout_mode = 0

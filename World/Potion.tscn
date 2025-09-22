@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgg3uq4ovua4s"]
+
+[ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_rcoq0"]
+[ext_resource type="Texture2D" uid="uid://blv5ua01nvvhg" path="res://icons/potion64.png" id="2_rcoq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffnvp"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_rcoq0")
+item_id = &"potion"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ffnvp")
+
+[node name="Wood" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Wood"]
+texture = ExtResource("2_rcoq0")

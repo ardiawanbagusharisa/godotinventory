@@ -12,7 +12,7 @@ const ICON_SIZE := 56
 const COUNT_FONT := 14
 
 var _icon: TextureRect
-#var _count: Label
+var _count: Label
 
 func _ready() -> void:
 	flat = false
@@ -30,16 +30,17 @@ func _ready() -> void:
 	_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_icon)
 
-	# count badge
-	#_count = Label.new()
-	#_count.add_theme_font_size_override("font_size", COUNT_FONT)
-	#_count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	#_count.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	# label
+	_count = Label.new()
+	_count.text = title
+	_count.add_theme_font_size_override("font_size", COUNT_FONT)
+	_count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_count.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 	#_count.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-	#_count.offset_right = -4
-	#_count.offset_bottom = -2
-	#_count.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	#add_child(_count)
+	_count.offset_right = -4
+	_count.offset_bottom = -2
+	_count.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_count)
 
 	tooltip_text = "%s" % title + "\n+1: click, \n+10: shift+click, \n+100: ctrl+click."
 

@@ -3,18 +3,20 @@ extends Node
 var items: Dictionary = {}
 
 func _ready() -> void:
-	_register_item("apple", "Apple", "res://icons/apple64.png", "res://World/Apple.tscn")
-	_register_item("wood", "Wood", "res://icons/wood64.png", "res://World/Wood.tscn")
-	_register_item("stone", "Stone", "res://icons/stone64.png", "res://World/Stone.tscn")
-	_register_item("stone1", "Stone1", "res://icons/stone64.png", "res://World/Stone.tscn")
-	_register_item("stone2", "Stone2", "res://icons/stone64.png", "res://World/Stone.tscn")
-	_register_item("stone3", "Stone3", "res://icons/stone64.png", "res://World/Stone.tscn")
-	_register_item("stone4", "Stone4", "res://icons/stone64.png", "res://World/Stone.tscn")
+	_register_item("apple", "Apple", "Replenish your energy (maybe).","res://icons/apple64.png", "res://World/Apple.tscn")
+	_register_item("wood", "Wood", "Build your dream AirBnb.","res://icons/wood64.png", "res://World/Wood.tscn")
+	_register_item("stone", "Stone", "Useful for a protest.","res://icons/stone64.png", "res://World/Stone.tscn")
+	_register_item("stone1", "Stone rare", "Even more useful for protest.", "res://icons/stone64.png", "res://World/Stone.tscn")
+	_register_item("corn", "Corn", "Feed your hungry.", "res://icons/corn64.png", "res://World/Corn.tscn")
+	_register_item("scroll", "Scroll", "Give you more knowledge. \nNo, you must study first, fool!", "res://icons/scroll64.png", "res://World/Scroll.tscn")
+	_register_item("poison", "Poison", "Give this for wife.", "res://icons/poison64.png", "res://World/Poison.tscn")
+	_register_item("potion", "Potion", "Give this for yourself.","res://icons/potion64.png", "res://World/Potion.tscn")
 
-func _register_item(id: String, name: String, icon_path: String, scene_path: String) -> void:
+func _register_item(id: String, name: String, description: String, icon_path: String, scene_path: String) -> void:
 	var data := ItemData.new()
 	data.id = id
 	data.display_name = name
+	data.description = description
 	data.icon = load(icon_path)
 	data.spawn_scene = load(scene_path)
 	items[id] = data

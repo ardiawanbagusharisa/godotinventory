@@ -66,8 +66,8 @@ func set_item(data: ItemData, count: int) -> void:
 	icon_rect.texture = data.icon
 	count_label.text = "999+" if (count > 999) else str(count)
 	_position_count_label()  # position after text is known
-	tooltip_text = "%s x%s.\n\nThis item is super\nuseful to replenish\nyour energy." % [data.display_name, count]
-
+	tooltip_text = "%s x%s. \n%s" % [data.display_name, count, data.description]
+	
 func _position_count_label() -> void:
 	# size needed for current text (accounts for ‘999+’ vs ‘5’ etc.)
 	var sz := count_label.get_minimum_size()
