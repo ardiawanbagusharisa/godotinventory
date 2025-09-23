@@ -27,7 +27,6 @@ func play_ui(id: StringName, volume_db: float = -6.0, pitch: float = 1.0) -> voi
 	p.finished.connect(p.queue_free)  
 	p.play()
 
-# World helper (for 2D positional sounds). Not required for UI clicks. 
 func play_2d(id: StringName, parent: Node, at_world: Vector2, volume_db: float = -6.0, pitch: float = 1.0) -> void:
 	var stream: AudioStream = _streams.get(id)
 	if stream == null:
@@ -43,10 +42,10 @@ func play_2d(id: StringName, parent: Node, at_world: Vector2, volume_db: float =
 	p.finished.connect(p.queue_free)
 	p.play()
 
-# Slight variation on pitch for “less repetitive” clicks
-func play_ui_var(id: StringName, volume_db: float = -6.0, jitter: float = 0.05) -> void:
-	var pitch := randf_range(1.0 - jitter, 1.0 + jitter)
-	play_ui(id, volume_db, pitch)
+## Slight variation on pitch for “less repetitive” clicks
+#func play_ui_var(id: StringName, volume_db: float = -6.0, jitter: float = 0.05) -> void:
+	#var pitch := randf_range(1.0 - jitter, 1.0 + jitter)
+	#play_ui(id, volume_db, pitch)
 
 func _bus_exists(name: String) -> bool:
 	for i in AudioServer.bus_count:

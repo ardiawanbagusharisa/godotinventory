@@ -4,7 +4,6 @@ class_name WorldItem
 @export var item_id: StringName
 @export var follow_while_dragging := true
 
-# VFX 
 @export var collision_vfx: PackedScene 
 @export var min_impact_speed: float = 80
 @export var vfx_cooldown: float = 0.5   
@@ -27,16 +26,11 @@ func _ready() -> void:
 	if panels.size() > 0 and panels[0] is Control:
 		_inv_panel = panels[0]
 	
-	# Uncomment this for more fun physics and VFX
-	# VFX 
-	#contact_monitor = true
-	#max_contacts_reported = 8
-	# RigidBody2D: make sure contacts produce signals
+	# Comment this if your want no physics. You're boring! 
 	if self is RigidBody2D:
 		contact_monitor = true
 		max_contacts_reported = 8
 
-	# Connect available signals generically (works on PhysicsBody2D & Area2D)
 	if has_signal("body_entered"):
 		connect("body_entered", _on_any_body_entered)
 	if has_signal("area_entered"):

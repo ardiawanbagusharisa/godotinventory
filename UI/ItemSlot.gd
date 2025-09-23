@@ -64,18 +64,16 @@ func set_item(data: ItemData, count: int) -> void:
 	item_id = data.id
 	icon_rect.texture = data.icon
 	count_label.text = "999+" if (count > 999) else str(count)
-	
-	# Reposition after text is known
 	_position_count_label()  
 	tooltip_text = "%s x%s. \n%s" % [data.display_name, count, data.description]
 	
 func _position_count_label() -> void:
 	# Size needed for current text (accounts for ‘999+’ vs ‘5’ etc.).
 	var sz := count_label.get_minimum_size()
-	# Inset from edges
+	# Inset from edges.
 	var inset_r := 4.0
 	var inset_b := 0.0
-	# For bottom/right-anchored controls, left/top offsets must be negative width/height
+	# For bottom/right-anchored controls, left/top offsets must be negative width/height.
 	count_label.offset_right = -inset_r
 	count_label.offset_bottom = -inset_b
 	count_label.offset_left = -inset_r - sz.x
