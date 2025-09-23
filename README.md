@@ -34,6 +34,27 @@ In grumpy folks, there are many, well, grumpy folks! They demand you to give the
 - `InventoryPanel`: the inventory panel, composed of margincontainer, vboxcontainer, scrollcontainer, and gridcontainer.
 - `DebugPanel`: to let the devs debug the items and inventory system. Read the Debug on Control section. 
 
+### Technical Implementation
+1. **Inventory System**:   
+  - Components: Panel, Container, ScrollContainer, Button, Label.
+  - Flexibility to add and remove item from the inventory slots.
+  - Highlighted slot (red tint) of the dragged item.
+  - Highlighted panel (green tint) when dragged-in the item.
+  - Simple parabole physic when right-clicked an item slot.  
+
+2. **Debug Panel**:  
+  - Similar like inventory, I used the same data from the ItemDatabase.
+  - Disable right click.
+  - Please, read the control section for how to use the clicks. 
+
+3. **Mini Game**:  
+  - Spawn grumpy folks, which explicitly has a balloon that may hold the demand icon.
+  - Gradually turn red if the folks do not get what they want in 20 seconds. Then, explode.
+  - Add scoring labels. 
+
+<img width="1155" height="648" alt="image" src="https://github.com/user-attachments/assets/eeae996d-cc74-4f23-954a-6590db1d6c9f" />
+
+
 ## Credits 
 - ChatGPT: *Disclaimer: I used ChatGPT to boost my work, including generating the code and math equation.
 - Flaticon: bunch of item icons.
