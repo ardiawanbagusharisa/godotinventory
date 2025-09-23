@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2cx4auvk53h7"]
 
 [ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_e22nx"]
-[ext_resource type="Texture2D" uid="uid://d27aia58yhjrr" path="res://icons/poison64.png" id="2_e22nx"]
+[ext_resource type="Texture2D" uid="uid://d27aia58yhjrr" path="res://Sprites/poison64.png" id="2_e22nx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffnvp"]
 

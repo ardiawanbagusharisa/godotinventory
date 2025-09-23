@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgg3uq4ovua4s"]
 
 [ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_rcoq0"]
-[ext_resource type="Texture2D" uid="uid://blv5ua01nvvhg" path="res://icons/potion64.png" id="2_rcoq0"]
+[ext_resource type="Texture2D" uid="uid://blv5ua01nvvhg" path="res://Sprites/potion64.png" id="2_rcoq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffnvp"]
 

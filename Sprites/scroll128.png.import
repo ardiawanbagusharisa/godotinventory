@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnetwytayg4cw"
-path="res://.godot/imported/stone128.png-953fb98017d909c4ef6be325139e8b06.ctex"
+uid="uid://bosars3pn8okb"
+path="res://.godot/imported/scroll128.png-791ab83456667b84910629885ac4c024.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/stone128.png"
-dest_files=["res://.godot/imported/stone128.png-953fb98017d909c4ef6be325139e8b06.ctex"]
+source_file="res://Sprites/scroll128.png"
+dest_files=["res://.godot/imported/scroll128.png-791ab83456667b84910629885ac4c024.ctex"]
 
 [params]
 

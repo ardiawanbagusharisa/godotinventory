@@ -16,7 +16,7 @@ signal villager_satisfied(wanted: StringName)
 @export var wanted_id: StringName = &""
 @export var fallback_icons: Dictionary = {}
 
-@export var angry_waiting_time: float = 5
+@export var angry_waiting_time: float = 15
 @export var calm_color: Color = Color(1, 1, 1, 1)     
 @export var angry_color: Color = Color(1, 0.15, 0.15, 1) 
 @export var vfx_cooldown: float = 0.5  

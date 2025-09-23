@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bosars3pn8okb"
-path="res://.godot/imported/scroll128.png-703c5ac83fec300eb19621f77093ddd2.ctex"
+uid="uid://uihmxde5paqd"
+path="res://.godot/imported/potion128.png-0e0775b398847150c243f7ebc7de264b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/scroll128.png"
-dest_files=["res://.godot/imported/scroll128.png-703c5ac83fec300eb19621f77093ddd2.ctex"]
+source_file="res://Sprites/potion128.png"
+dest_files=["res://.godot/imported/potion128.png-0e0775b398847150c243f7ebc7de264b.ctex"]
 
 [params]
 

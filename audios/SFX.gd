@@ -5,12 +5,12 @@ const BUS := "SFX"
 
 # Preload clips
 var _streams: Dictionary = {
-	&"ui_click": preload("res://audios/Beep S.wav"),
-	&"ui_rightclick": preload("res://audios/Hit XS.wav"),
-	&"ui_drag": preload("res://audios/PowerUp M2.wav"),
-	&"ui_dragout": preload("res://audios/PowerUp M.wav"),
-	&"grumpy_explode": preload("res://audios/Hit M.wav"),
-	&"grumpy_satisfied": preload("res://audios/Beep M.wav"),
+	&"ui_click": preload("res://Audios/Beep S.wav"),
+	&"ui_rightclick": preload("res://Audios/Hit XS.wav"),
+	&"ui_drag": preload("res://Audios/PowerUp M2.wav"),
+	&"ui_dragout": preload("res://Audios/PowerUp M.wav"),
+	&"grumpy_explode": preload("res://Audios/Hit M.wav"),
+	&"grumpy_satisfied": preload("res://Audios/Beep M.wav"),
 }
 
 func play_ui(id: StringName, volume_db: float = -6.0, pitch: float = 1.0) -> void:
@@ -49,7 +49,6 @@ func play_ui_var(id: StringName, volume_db: float = -6.0, jitter: float = 0.05) 
 	play_ui(id, volume_db, pitch)
 
 func _bus_exists(name: String) -> bool:
-	
 	for i in AudioServer.bus_count:
 		if AudioServer.get_bus_name(i) == name:
 			return true

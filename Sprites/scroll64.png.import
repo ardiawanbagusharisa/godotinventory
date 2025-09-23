@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d27aia58yhjrr"
-path="res://.godot/imported/poison64.png-81e43212c54e304fec3392958623c8ba.ctex"
+uid="uid://dj02cplvirgo0"
+path="res://.godot/imported/scroll64.png-1cdf75594fb08efb96ef7fb1e1334654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/poison64.png"
-dest_files=["res://.godot/imported/poison64.png-81e43212c54e304fec3392958623c8ba.ctex"]
+source_file="res://Sprites/scroll64.png"
+dest_files=["res://.godot/imported/scroll64.png-1cdf75594fb08efb96ef7fb1e1334654.ctex"]
 
 [params]
 

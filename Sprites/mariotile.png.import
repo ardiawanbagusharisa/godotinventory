@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pr1dd1ivmjp1"
-path="res://.godot/imported/wood64.png-8acb8ff6f826d8cd014a4a95472c3595.ctex"
+uid="uid://mtd4mrspjhoe"
+path="res://.godot/imported/mariotile.png-625a4a74c078cd3609dd778251b30027.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/wood64.png"
-dest_files=["res://.godot/imported/wood64.png-8acb8ff6f826d8cd014a4a95472c3595.ctex"]
+source_file="res://Sprites/mariotile.png"
+dest_files=["res://.godot/imported/mariotile.png-625a4a74c078cd3609dd778251b30027.ctex"]
 
 [params]
 

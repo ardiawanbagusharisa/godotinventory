@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyghvx24yv58g"
-path="res://.godot/imported/apple128.png-984c6cafbc46486d4bc5561240f2636f.ctex"
+uid="uid://d3c08o3qi3c41"
+path="res://.godot/imported/corn128.png-a81421e78b2c5c757e07aa63f650fbfd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/apple128.png"
-dest_files=["res://.godot/imported/apple128.png-984c6cafbc46486d4bc5561240f2636f.ctex"]
+source_file="res://Sprites/corn128.png"
+dest_files=["res://.godot/imported/corn128.png-a81421e78b2c5c757e07aa63f650fbfd.ctex"]
 
 [params]
 

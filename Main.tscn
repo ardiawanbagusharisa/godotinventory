@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cgspws7wc12x6" path="res://Inventory/InventoryPanel.tscn" id="2_r0du0"]
 [ext_resource type="Script" uid="uid://bnlwuv44pqg2l" path="res://World/WorldDropLayer.gd" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://28h1wfji5ibe" path="res://Debug/DebugPanel.tscn" id="5_3dxm6"]
-[ext_resource type="Texture2D" uid="uid://mtd4mrspjhoe" path="res://icons/mariotile.png" id="5_fos0i"]
+[ext_resource type="Texture2D" uid="uid://mtd4mrspjhoe" path="res://Sprites/mariotile.png" id="5_fos0i"]
 [ext_resource type="Script" uid="uid://ciocq748v3ep3" path="res://MiniGame/GrumpySpawner.gd" id="7_lgr22"]
 [ext_resource type="PackedScene" uid="uid://bbsmwnpv7ag7c" path="res://MiniGame/GrumpyVillager.tscn" id="8_trn2v"]
 

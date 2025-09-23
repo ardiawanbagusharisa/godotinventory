@@ -19,4 +19,4 @@ config/icon="res://icon.svg"
 
 ItemDB="*res://Inventory/ItemDatabase.gd"
 Inventory="*res://Inventory/Inventory.gd"
-SFXManager="*res://audios/SFX.gd"
+SFXManager="*res://Audios/SFX.gd"

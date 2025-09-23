@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6rw8wtafgs8b"
-path="res://.godot/imported/stone64.png-e8151c37249f4033028405e772c426b3.ctex"
+uid="uid://blv5ua01nvvhg"
+path="res://.godot/imported/potion64.png-311501c8e3e10e6cefac89409e7c3e76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/stone64.png"
-dest_files=["res://.godot/imported/stone64.png-e8151c37249f4033028405e772c426b3.ctex"]
+source_file="res://Sprites/potion64.png"
+dest_files=["res://.godot/imported/potion64.png-311501c8e3e10e6cefac89409e7c3e76.ctex"]
 
 [params]
 

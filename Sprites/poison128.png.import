@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3c08o3qi3c41"
-path="res://.godot/imported/corn128.png-82bc8b3eced48b5590e86fd8944143ed.ctex"
+uid="uid://bm6j2dtqadjjh"
+path="res://.godot/imported/poison128.png-52a398290cd6110b2ab18933550b5380.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/corn128.png"
-dest_files=["res://.godot/imported/corn128.png-82bc8b3eced48b5590e86fd8944143ed.ctex"]
+source_file="res://Sprites/poison128.png"
+dest_files=["res://.godot/imported/poison128.png-52a398290cd6110b2ab18933550b5380.ctex"]
 
 [params]
 

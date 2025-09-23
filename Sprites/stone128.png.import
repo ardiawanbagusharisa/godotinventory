@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uihmxde5paqd"
-path="res://.godot/imported/potion128.png-ae3cbb9eb769127d184929cbe4e75d0c.ctex"
+uid="uid://cnetwytayg4cw"
+path="res://.godot/imported/stone128.png-0b5b22d5fae274e4810a7cd9edf8eeb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/potion128.png"
-dest_files=["res://.godot/imported/potion128.png-ae3cbb9eb769127d184929cbe4e75d0c.ctex"]
+source_file="res://Sprites/stone128.png"
+dest_files=["res://.godot/imported/stone128.png-0b5b22d5fae274e4810a7cd9edf8eeb8.ctex"]
 
 [params]
 

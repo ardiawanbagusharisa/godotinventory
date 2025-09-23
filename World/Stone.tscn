@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bygn6pnree5f6"]
 
 [ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_jwa2j"]
-[ext_resource type="Texture2D" uid="uid://c6rw8wtafgs8b" path="res://icons/stone64.png" id="2_jwa2j"]
+[ext_resource type="Texture2D" uid="uid://c6rw8wtafgs8b" path="res://Sprites/stone64.png" id="2_jwa2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwa2j"]
 

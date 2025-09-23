@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxvq0lpu7raor"]
 
 [ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_huofl"]
-[ext_resource type="Texture2D" uid="uid://bl8w07lhkxyry" path="res://icons/apple64.png" id="2_huofl"]
+[ext_resource type="Texture2D" uid="uid://bl8w07lhkxyry" path="res://Sprites/apple64.png" id="2_huofl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huofl"]
 

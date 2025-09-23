@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bwmkqx2qksv8m"]
 
-[ext_resource type="Texture2D" uid="uid://bl8w07lhkxyry" path="res://icons/apple64.png" id="1_euvup"]
+[ext_resource type="Texture2D" uid="uid://bl8w07lhkxyry" path="res://Sprites/apple64.png" id="1_euvup"]
 [ext_resource type="Script" uid="uid://bpliei0futwbe" path="res://Inventory/ItemData.gd" id="1_sjgli"]
 [ext_resource type="PackedScene" uid="uid://bxvq0lpu7raor" path="res://World/Apple.tscn" id="3_2yylf"]
 

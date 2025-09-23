@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bliyhmdb38iqy"]
 
 [ext_resource type="Script" uid="uid://bxjmw8hbm3of3" path="res://World/WorldItem.gd" id="1_ffnvp"]
-[ext_resource type="Texture2D" uid="uid://pr1dd1ivmjp1" path="res://icons/wood64.png" id="2_ffnvp"]
+[ext_resource type="Texture2D" uid="uid://pr1dd1ivmjp1" path="res://Sprites/wood64.png" id="2_ffnvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffnvp"]
 

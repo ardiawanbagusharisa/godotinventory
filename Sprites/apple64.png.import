@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dj02cplvirgo0"
-path="res://.godot/imported/scroll64.png-56beca5ef745f5534f118fa46817c3db.ctex"
+uid="uid://bl8w07lhkxyry"
+path="res://.godot/imported/apple64.png-b21e0c2a2b9eb58801c2930d0702232b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/scroll64.png"
-dest_files=["res://.godot/imported/scroll64.png-56beca5ef745f5534f118fa46817c3db.ctex"]
+source_file="res://Sprites/apple64.png"
+dest_files=["res://.godot/imported/apple64.png-b21e0c2a2b9eb58801c2930d0702232b.ctex"]
 
 [params]
 
