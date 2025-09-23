@@ -9,6 +9,8 @@ var _streams: Dictionary = {
 	&"ui_rightclick": preload("res://audios/Hit XS.wav"),
 	&"ui_drag": preload("res://audios/PowerUp M2.wav"),
 	&"ui_dragout": preload("res://audios/PowerUp M.wav"),
+	&"grumpy_explode": preload("res://audios/Hit M.wav"),
+	&"grumpy_satisfied": preload("res://audios/Beep M.wav"),
 }
 
 func play_ui(id: StringName, volume_db: float = -6.0, pitch: float = 1.0) -> void:
@@ -22,7 +24,6 @@ func play_ui(id: StringName, volume_db: float = -6.0, pitch: float = 1.0) -> voi
 	p.volume_db = volume_db
 	p.pitch_scale = pitch
 	add_child(p)
-	# auto-clean
 	p.finished.connect(p.queue_free)  
 	p.play()
 
