@@ -73,7 +73,6 @@ func _highlight_slot(id: StringName, on: bool) -> void:
 		else:
 			_slots_by_id.erase(id)
 
-
 func _clear_highlight() -> void:                           
 	_highlight_slot(_current_highlight_id, false)
 

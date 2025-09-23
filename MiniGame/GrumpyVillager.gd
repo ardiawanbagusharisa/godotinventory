@@ -5,14 +5,13 @@ signal villager_satisfied(wanted: StringName)
 
 @export var main_root: Main 
 
-# --- Movement / patrol ---
 @export var gravity: float = 1200.0
 @export var speed: float = 60.0
 @export var patrol_width: float = 800.0
 @export var turn_on_wall: bool = true
 @export var consume_item_on_touch: bool = true
 @export var collision_vfx: PackedScene 
-# --- Demand / balloon ---
+
 @export var wanted_id: StringName = &""
 @export var fallback_icons: Dictionary = {}
 
@@ -30,7 +29,6 @@ var _patrol_left := -INF
 var _patrol_right := INF
 var _dir := -1.0
 
-# cached nodes
 var _balloon: Sprite2D
 var _balloon_icon: TextureRect
 var _char_sprite: Sprite2D
