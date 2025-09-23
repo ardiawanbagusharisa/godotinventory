@@ -1,6 +1,8 @@
 # godotinventory
 A repo for inventory system and mini game in Godot. 
 
+Build: [GrumpyFolks.zip](https://drive.google.com/file/d/14cdQnVTlzSMz60PBO186Z5XDiTFhNAzJ/view?usp=sharing) 
+
 # Mini Game: Grumpy Folks!
 In grumpy folks, there are many, well, grumpy folks! They demand you to give them the stuff they want. If they are not getting what they want, they will explode! 
 <img width="1158" height="691" alt="image" src="https://github.com/user-attachments/assets/0fe2edf3-c2f0-41d9-bd15-b088601518d7" />
