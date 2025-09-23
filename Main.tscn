@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b20sumym8pnrq"]
+[gd_scene load_steps=10 format=3 uid="uid://b20sumym8pnrq"]
 
 [ext_resource type="Script" uid="uid://cgwx0yh7uw8gm" path="res://Main.gd" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://dd6sir0xwei0i" path="res://World/World.tscn" id="1_uu6xs"]
@@ -6,12 +6,16 @@
 [ext_resource type="Script" uid="uid://bnlwuv44pqg2l" path="res://World/WorldDropLayer.gd" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://28h1wfji5ibe" path="res://Debug/DebugPanel.tscn" id="5_3dxm6"]
 [ext_resource type="Texture2D" uid="uid://mtd4mrspjhoe" path="res://icons/mariotile.png" id="5_fos0i"]
+[ext_resource type="Script" uid="uid://ciocq748v3ep3" path="res://MiniGame/GrumpySpawner.gd" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://bbsmwnpv7ag7c" path="res://MiniGame/GrumpyVillager.tscn" id="8_trn2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 size = Vector2(1149, 86)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("label_satisfied", "label_angry")]
 script = ExtResource("1_fos0i")
+label_satisfied = NodePath("CanvasLayer/UI/LabelSatisfied")
+label_angry = NodePath("CanvasLayer/UI/LabelAngry")
 
 [node name="World" parent="." instance=ExtResource("1_uu6xs")]
 
@@ -47,12 +51,37 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="InventoryPanel" parent="CanvasLayer/UI" instance=ExtResource("2_r0du0")]
-layout_mode = 0
-offset_left = 752.0
-offset_right = 1151.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -250.0
+offset_right = 0.0
+grow_horizontal = 0
 
 [node name="DebugPanel" parent="CanvasLayer/UI" instance=ExtResource("5_3dxm6")]
 layout_mode = 0
+
+[node name="LabelAngry" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Angry Souls: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelSatisfied" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 25.0
+offset_bottom = 48.0
+grow_horizontal = 2
+text = "Satisfied Souls: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(575, 603)
@@ -64,5 +93,13 @@ shape = SubResource("RectangleShape2D_cm0pq")
 position = Vector2(-1, 1.00001)
 scale = Vector2(17.9531, 1.3125)
 texture = ExtResource("5_fos0i")
+
+[node name="MiniGame" type="Node2D" parent="."]
+
+[node name="GrumpySpawner" type="Node2D" parent="MiniGame"]
+position = Vector2(575, 400)
+script = ExtResource("7_lgr22")
+villager_scene = ExtResource("8_trn2v")
+spawn_interval_sec = 3.0
 
 [editable path="World"]
