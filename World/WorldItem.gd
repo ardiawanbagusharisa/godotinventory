@@ -4,6 +4,8 @@ class_name WorldItem
 @export var item_id: StringName
 @export var follow_while_dragging := true
 
+@onready var vfx_parent: Node2D = get_tree().get_first_node_in_group("VFX") as Node2D
+
 @export var collision_vfx: PackedScene 
 @export var min_impact_speed: float = 80
 @export var vfx_cooldown: float = 0.5   
@@ -37,13 +39,16 @@ func _ready() -> void:
 		connect("area_entered", _on_any_area_entered)
 
 func _on_any_body_entered(_body: Node) -> void:
-	_try_spawn_VFX()
+	_on_collided_or_given()
+	#_try_spawn_VFX()
 
 func _on_any_area_entered(_area: Area2D) -> void:
-	_try_spawn_VFX()
+	_on_collided_or_given()
+	#_try_spawn_VFX()
 
 func _on_body_entered(_body: Node) -> void:
-	_try_spawn_VFX()
+	_on_collided_or_given()
+	#_try_spawn_VFX()
 
 func _try_spawn_VFX() -> void:
 	if _vfx_cd_left > 0.0:
@@ -199,7 +204,7 @@ func _physics_process(delta: float) -> void:
 				hit_pos = to_global(n.normalized() * 8.0) # small offset
 				used = true
 
-		_spawn_collision_vfx(hit_pos)
+		#_spawn_collision_vfx(hit_pos)
 		_vfx_cd_left = vfx_cooldown
 		return
 
@@ -223,6 +228,12 @@ func _spawn_collision_vfx(at_pos: Vector2) -> void:
 	else:
 		get_tree().create_timer(0.6).timeout.connect(vfx.queue_free)
 
+func _on_collided_or_given() -> void:
+	var vfx_parent := get_tree().get_first_node_in_group("VFX") as Node
+	var pos := global_position 
+	SparkEmitter2D.emit_spark(vfx_parent if vfx_parent else get_tree().current_scene, pos, SparkEmitter2D.for_world_item())
+
+	
 func _make_default_spark_2d() -> GPUParticles2D:
 	var p := GPUParticles2D.new()
 	p.one_shot = true

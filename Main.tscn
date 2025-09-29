@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b20sumym8pnrq"]
+[gd_scene load_steps=12 format=3 uid="uid://b20sumym8pnrq"]
 
 [ext_resource type="Script" uid="uid://cgwx0yh7uw8gm" path="res://Main.gd" id="1_fos0i"]
 [ext_resource type="PackedScene" uid="uid://dd6sir0xwei0i" path="res://World/World.tscn" id="1_uu6xs"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://mtd4mrspjhoe" path="res://Sprites/mariotile.png" id="5_fos0i"]
 [ext_resource type="Script" uid="uid://ciocq748v3ep3" path="res://MiniGame/GrumpySpawner.gd" id="7_lgr22"]
 [ext_resource type="PackedScene" uid="uid://bbsmwnpv7ag7c" path="res://MiniGame/GrumpyVillager.tscn" id="8_trn2v"]
+[ext_resource type="Script" uid="uid://c4rqy2c7rdbvi" path="res://UI/SparkEmitter2D.gd" id="9_wkp8b"]
+[ext_resource type="PackedScene" uid="uid://dei5nq3xtv8ds" path="res://UI/SparkBurst2D.tscn" id="10_20pc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm0pq"]
 size = Vector2(1149, 86)
@@ -101,5 +103,11 @@ position = Vector2(575, 400)
 script = ExtResource("7_lgr22")
 villager_scene = ExtResource("8_trn2v")
 spawn_interval_sec = 3.0
+
+[node name="VFX" type="Node2D" parent="." groups=["VFX"]]
+
+[node name="SparkEmitter2D" type="Node2D" parent="VFX"]
+script = ExtResource("9_wkp8b")
+spark_scene = ExtResource("10_20pc6")
 
 [editable path="World"]

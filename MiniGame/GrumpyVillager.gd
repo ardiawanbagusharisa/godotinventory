@@ -11,11 +11,12 @@ signal villager_satisfied(wanted: StringName)
 @export var turn_on_wall: bool = true
 @export var consume_item_on_touch: bool = true
 @export var collision_vfx: PackedScene 
+@onready var vfx_parent: Node2D = get_tree().get_first_node_in_group("VFX") as Node2D
 
 @export var wanted_id: StringName = &""
 @export var fallback_icons: Dictionary = {}
 
-@export var angry_waiting_time: float = 15
+@export var angry_waiting_time: float = 3
 @export var calm_color: Color = Color(1, 1, 1, 1)     
 @export var angry_color: Color = Color(1, 0.15, 0.15, 1) 
 @export var vfx_cooldown: float = 0.5  
@@ -124,7 +125,8 @@ func _process(delta: float) -> void:
 		main_root.update_angry_souls(1)
 		main_root.update_satisfied_souls(-1)
 		queue_free()
-		_try_spawn_VFX()
+		#_try_spawn_VFX()
+		_show_angry_spark()
 		SFXManager.play_ui(&"grumpy_explode")
 		if main_root.angry_souls >= 5: 
 			print("Game Over!")
@@ -222,6 +224,12 @@ func _spawn_collision_vfx(at_pos: Vector2) -> void:
 	else:
 		get_tree().create_timer(0.6).timeout.connect(vfx.queue_free)
 
+func _show_angry_spark() -> void:
+	var vfx_parent := get_tree().get_first_node_in_group("VFX") as Node
+	var pos = $CharacterSprite.global_position # or global_position; whichever looks better
+	SparkEmitter2D.emit_spark(vfx_parent if vfx_parent else get_tree().current_scene, pos, SparkEmitter2D.for_grumpy_villager())
+
+	
 func _make_default_spark_2d() -> GPUParticles2D:
 	var p := GPUParticles2D.new()
 	p.one_shot = true

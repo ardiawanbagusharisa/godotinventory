@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dei5nq3xtv8ds"]
+
+[node name="SparkBurst2D" type="Node2D"]
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+emitting = false
+one_shot = true
